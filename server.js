@@ -35,10 +35,10 @@ const server = app.listen(
 
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
-  cors: {
-    origin: "https://frontend-nlz2bl0jc-chat-app-by-dm.vercel.app",
-    // credentials: true,
-  },
+  // cors: {
+  //   origin: "https://frontend-nlz2bl0jc-chat-app-by-dm.vercel.app",
+  //   // credentials: true,
+  // },
 });
 
 io.on("connection", (socket) => {
