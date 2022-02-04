@@ -24,8 +24,15 @@ app.use("/api/message", messageRoutes);
 
 // Error Handling middlewares
 app.use(notFound);
-app.use(errorHandler);
+app.use(errorHandler)
 
+app.use(function (req, res, next) {
+  //Enabling CORS
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+    next();
+  });
 const PORT = process.env.PORT;
 
 const server = app.listen(
@@ -35,10 +42,10 @@ const server = app.listen(
 
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
-  // cors: {
-  //   origin: "https://frontend-nlz2bl0jc-chat-app-by-dm.vercel.app",
-  //   // credentials: true,
-  // },
+  cors: {
+    origin: "https://frontend-nlz2bl0jc-chat-app-by-dm.vercel.app",
+    // credentials: true,
+  },
 });
 
 io.on("connection", (socket) => {
