@@ -44,7 +44,7 @@ const server = app.listen(
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "https://epic-williams-a45445.netlify.app",
+    origin: "https://frontend-pauaiuy1o-chat-app-by-dm.vercel.app",
     // credentials: true,
   },
 });
