@@ -44,7 +44,7 @@ const server = app.listen(
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "https://chat-app-by-dm.web.app",
+    origin: "https://epic-williams-a45445.netlify.app",
     // credentials: true,
   },
 });
